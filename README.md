@@ -1,6 +1,6 @@
-# 🍅 Phát hiện sâu bệnh cà chua bằng YOLOv8 (Flask + Camera)
+# 🍅 Phân loại tình trạng quả chuối bằng ResNet50 (Flask + Camera)
 
-Ứng dụng web sử dụng **YOLOv8 thông qua Roboflow API** để phát hiện **sâu bệnh trên lá cà chua** từ ảnh người dùng **upload hoặc chụp từ camera**. Kết quả sẽ được **vẽ bounding box lên ảnh**, trực quan và dễ quan sát.
+Ứng dụng web sử dụng **ResNet50 thông qua Roboflow API** để phân loại **tình trạng quả chuối** từ ảnh người dùng **upload hoặc chụp từ camera**. Kết quả sẽ được **trả về kèm độ tin cậy**, trực quan và dễ quan sát.
 
 ---
 
@@ -8,8 +8,8 @@
 
 - ✅ Upload ảnh từ máy
 - ✅ Chụp ảnh trực tiếp bằng webcam trình duyệt
-- ✅ Gửi ảnh đến mô hình YOLOv8 được triển khai trên Roboflow
-- ✅ Hiển thị kết quả nhận diện với khung vùng bệnh (bounding boxes)
+- ✅ Gửi ảnh đến mô hình ResNet50 được triển khai trên Roboflow
+- ✅ Hiển thị kết quả nhận diện với độ tin cậy
 - ✅ Giao diện web đơn giản, dễ sử dụng
 
 ---
@@ -17,7 +17,6 @@
 ## 🛠 Công nghệ sử dụng
 
 - [Flask](https://flask.palletsprojects.com/)
-- [OpenCV](https://opencv.org/) – vẽ bounding box
 - [Roboflow Inference SDK](https://github.com/roboflow/inference)
 - HTML5, CSS3, JavaScript (Webcam API)
 
@@ -28,8 +27,8 @@
 ### 1. Clone dự án và cài thư viện
 
 ```bash
-git clone https://github.com/beartobear/tomato-disease-detection.git
-cd tomato-disease-detection
+git clone https://github.com/TNhaan/Check_Banana.git
+cd  check_banana_main
 pip install -r requirements.txt
 ```
 - bước 1:

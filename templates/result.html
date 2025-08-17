@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kết quả phân tích 🍌</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f8fa;
+      color: #333;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #4caf50;
+    }
+    .result-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #4caf50;
+    }
+    .prediction {
+      font-size: 1.3em;
+      margin: 10px 0;
+    }
+    .confidence {
+      font-size: 1.1em;
+      color: #666;
+    }
+    a.back-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #4caf50;
+      border: 1px solid #4caf50;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    a.back-link:hover {
+      background-color: #4caf50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kết quả phân tích trạng thái quả chuối</h1>
+
+  <div class="result-container">
+    <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Ảnh phân tích" />
+    <div class="prediction">Dự đoán: <strong>{{ predicted_class|capitalize }}</strong></div>
+
+{% if confidence > 0 %}
+  <div class="confidence">Độ tin cậy: {{ (confidence * 100) | round(2) }}%</div>
+{% endif %}
+
+    <a class="back-link" href="{{ url_for('index') }}">← Quay lại</a>
+  </div>
+ 
+<script>
+  function recordResult(label) {
+    const stats = JSON.parse(localStorage.getItem('bananaStats') || '{}');
+    stats[label] = (stats[label] || 0) + 1;
+    localStorage.setItem('bananaStats', JSON.stringify(stats));
+  }
+
+  // Ghi lại kết quả phân loại từ server trả về
+  recordResult("{{ predicted_class }}");
+</script>
+
+</body>
+</html>

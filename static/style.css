@@ -1,0 +1,292 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 1000px;         /* giới hạn chiều rộng tổng thể */
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+
+header {
+  background-color: #d0f0c0;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid #a3d977;
+  position: relative;
+}
+
+.logo {
+  height: 60px;
+  max-width: 100px;
+  object-fit: contain;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+  color: #2e7d32;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Cột bên trái: form chức năng */
+.left-column {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Cột bên phải: báo cáo */
+.right-column {
+  width: 320px;
+}
+
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  color: #388e3c;
+  margin-bottom: 15px;
+  border-left: 5px solid #c8e6c9;
+  padding-left: 10px;
+}
+
+input[type="file"],
+input[type="submit"],
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #66bb6a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #4caf50;
+}
+
+video {
+  display: block;
+  margin: 0 auto 10px;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 2px solid #a5d6a7;
+}
+
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #dcedc8;
+  text-align: center;
+  font-size: 14px;
+  color: #5d6d49;
+}
+
+/* --------- Responsive: Mobile-first --------- */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 18px;
+    padding-top: 70px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .logo {
+    height: 50px;
+    max-width: 80px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .container {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .card {
+    font-size: 14px;
+    padding: 10px;
+    margin: 5px auto;
+  }
+
+  .section h2 {
+    font-size: 16px;
+    padding-left: 5px;
+  }
+
+  input[type="file"],
+  input[type="submit"],
+  button {
+    font-size: 14px;
+    padding: 8px 18px;
+    width: 90%;
+    margin: 8px auto;
+  }
+
+  video {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .back-btn {
+    font-size: 14px;
+    padding: 8px 18px;
+    width: 90%;
+  }
+}
+.preview-box {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ccc;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.preview-content {
+  text-align: center;
+}
+.preview-icon {
+  width: 48px;
+  height: 48px;
+  opacity: 0.6;
+}
+.preview-text {
+  display: block;
+  margin-top: 8px;
+  color: #666;
+  font-size: 1rem;
+}
+.preview-box img#previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#loadingOverlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 9999;
+  text-align: center;
+  padding-top: 20%;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #4caf50;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#reportModal h3 {
+  margin-top: 0;
+  color: #4caf50;
+}
+table th {
+  background-color: #c8e6c9;
+  text-align: left;
+}
+table td, table th {
+  border: 1px solid #ccc;
+}
+/* Bảng báo cáo */
+#reportSection {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#reportSection h2 {
+  color: #388e3c;
+  margin-bottom: 10px;
+  border-left: 5px solid #c8e6c9;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#reportSection table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#reportSection th, #reportSection td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#reportSection th {
+  background-color: #e8f5e9;
+  font-weight: bold;
+}
+
+/* Nút CSV & Reset */
+#reportSection button {
+  font-size: 14px;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#reportSection .btn-csv {
+  background-color: #42a5f5;
+  color: white;
+}
+
+#reportSection .btn-reset {
+  background-color: #ef5350;
+  color: white;
+}
+
+#reportSection button:hover {
+  opacity: 0.9;
+}
